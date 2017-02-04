@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		18BFC73D1E45A0210001B6C7 /* MSDatePickerCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 18BFC73B1E45A0210001B6C7 /* MSDatePickerCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18BFC7441E45A0440001B6C7 /* MSDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFC7431E45A0440001B6C7 /* MSDatePickerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		18BFC7381E45A0210001B6C7 /* MSDatePickerCell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSDatePickerCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BFC73B1E45A0210001B6C7 /* MSDatePickerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSDatePickerCell.h; sourceTree = "<group>"; };
 		18BFC73C1E45A0210001B6C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18BFC7431E45A0440001B6C7 /* MSDatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSDatePickerCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 		18BFC73A1E45A0210001B6C7 /* MSDatePickerCell */ = {
 			isa = PBXGroup;
 			children = (
+				18BFC7431E45A0440001B6C7 /* MSDatePickerCell.swift */,
 				18BFC73B1E45A0210001B6C7 /* MSDatePickerCell.h */,
 				18BFC73C1E45A0210001B6C7 /* Info.plist */,
 			);
@@ -95,6 +98,7 @@
 				TargetAttributes = {
 					18BFC7371E45A0210001B6C7 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -131,6 +135,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18BFC7441E45A0440001B6C7 /* MSDatePickerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +244,7 @@
 		18BFC7411E45A0210001B6C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -250,6 +256,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.masashi.sutou.MSDatePickerCell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -257,6 +264,7 @@
 		18BFC7421E45A0210001B6C7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
