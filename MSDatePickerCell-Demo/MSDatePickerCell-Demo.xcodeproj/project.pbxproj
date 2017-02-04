@@ -9,19 +9,19 @@
 /* Begin PBXBuildFile section */
 		182C83591E45A2DA005BE479 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C83581E45A2DA005BE479 /* AppDelegate.swift */; };
 		182C835B1E45A2DA005BE479 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C835A1E45A2DA005BE479 /* ViewController.swift */; };
-		182C835E1E45A2DA005BE479 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 182C835C1E45A2DA005BE479 /* Main.storyboard */; };
 		182C83601E45A2DA005BE479 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 182C835F1E45A2DA005BE479 /* Assets.xcassets */; };
 		182C83631E45A2DA005BE479 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 182C83611E45A2DA005BE479 /* LaunchScreen.storyboard */; };
+		182C836B1E45A41E005BE479 /* MSDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C836A1E45A41E005BE479 /* MSDatePickerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		182C83551E45A2DA005BE479 /* MSDatePickerCell-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MSDatePickerCell-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		182C83581E45A2DA005BE479 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		182C835A1E45A2DA005BE479 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		182C835D1E45A2DA005BE479 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		182C835F1E45A2DA005BE479 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		182C83621E45A2DA005BE479 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		182C83641E45A2DA005BE479 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		182C836A1E45A41E005BE479 /* MSDatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSDatePickerCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +56,7 @@
 			children = (
 				182C83581E45A2DA005BE479 /* AppDelegate.swift */,
 				182C835A1E45A2DA005BE479 /* ViewController.swift */,
-				182C835C1E45A2DA005BE479 /* Main.storyboard */,
+				182C836A1E45A41E005BE479 /* MSDatePickerCell.swift */,
 				182C835F1E45A2DA005BE479 /* Assets.xcassets */,
 				182C83611E45A2DA005BE479 /* LaunchScreen.storyboard */,
 				182C83641E45A2DA005BE479 /* Info.plist */,
@@ -96,6 +96,7 @@
 				TargetAttributes = {
 					182C83541E45A2DA005BE479 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = E8L2964G6Z;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -125,7 +126,6 @@
 			files = (
 				182C83631E45A2DA005BE479 /* LaunchScreen.storyboard in Resources */,
 				182C83601E45A2DA005BE479 /* Assets.xcassets in Resources */,
-				182C835E1E45A2DA005BE479 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,20 +138,13 @@
 			files = (
 				182C835B1E45A2DA005BE479 /* ViewController.swift in Sources */,
 				182C83591E45A2DA005BE479 /* AppDelegate.swift in Sources */,
+				182C836B1E45A41E005BE479 /* MSDatePickerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		182C835C1E45A2DA005BE479 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				182C835D1E45A2DA005BE479 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		182C83611E45A2DA005BE479 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -203,7 +196,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -246,7 +239,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -258,6 +251,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E8L2964G6Z;
 				INFOPLIST_FILE = "MSDatePickerCell-Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.masashi.sutou.MSDatePickerCell-Demo";
@@ -270,6 +264,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E8L2964G6Z;
 				INFOPLIST_FILE = "MSDatePickerCell-Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.masashi.sutou.MSDatePickerCell-Demo";
