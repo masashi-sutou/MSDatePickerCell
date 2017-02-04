@@ -39,8 +39,8 @@ private extension Date {
 class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
     
     public var cal: Calendar = Calendar.init(identifier: .gregorian)
+    public var picker: UIPickerView
     
-    private var datePicker: UIPickerView
     private var dateUpdated: (Date) -> Void
     private var style: DatePickerStyle
     
@@ -56,18 +56,18 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
         
         self.dateUpdated = dateUpdated
         self.style = style
-        self.datePicker = UIPickerView()
-        self.datePicker.showsSelectionIndicator = true
+        self.picker = UIPickerView()
+        self.picker.showsSelectionIndicator = true
         
         super.init(style: .default, reuseIdentifier: "DatePickerCell")
         
-        self.datePicker.delegate = self
+        self.picker.delegate = self
         self.defaultSelectPickerRow(date: date)
         
         self.accessoryType = .none
         self.selectionStyle = .none
         self.clipsToBounds = true
-        self.contentView.addSubview(self.datePicker)
+        self.contentView.addSubview(self.picker)
     }
     
     override func layoutSubviews() {
@@ -77,7 +77,7 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
         insets.left = insets.left > 20 ? insets.left : 0
         insets.right = insets.right > 20 ? insets.right : 0
         
-        self.datePicker.frame = CGRect(x: insets.left, y: 0, width: self.frame.width - (insets.left + insets.right), height: self.datePicker.frame.height)
+        self.picker.frame = CGRect(x: insets.left, y: 0, width: self.frame.width - (insets.left + insets.right), height: self.picker.frame.height)
     }
     
     // MARK: - UIPickerView data source
@@ -225,19 +225,19 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
             if let yearIndex = years.index(of: self.cal.component(.year, from: date)) {
                 yi = yearIndex
             }
-            self.datePicker.selectRow(yi, inComponent:0, animated:true)
+            self.picker.selectRow(yi, inComponent:0, animated:true)
             
             var mi: Int = 0
             if let monthIndex = months.index(of: self.cal.component(.month, from: date)) {
                 mi = monthIndex
             }
-            self.datePicker.selectRow(mi, inComponent:1, animated:true)
+            self.picker.selectRow(mi, inComponent:1, animated:true)
             
             var di: Int = 0
             if let dayIndex = days.index(of: self.cal.component(.day, from: date)) {
                 di = dayIndex
             }
-            self.datePicker.selectRow(di, inComponent:2, animated:true)
+            self.picker.selectRow(di, inComponent:2, animated:true)
             
         case .YM:
             
@@ -245,13 +245,13 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
             if let yearIndex = years.index(of: self.cal.component(.year, from: date)) {
                 yi = yearIndex
             }
-            self.datePicker.selectRow(yi, inComponent:0, animated:true)
+            self.picker.selectRow(yi, inComponent:0, animated:true)
             
             var mi: Int = 0
             if let monthIndex = months.index(of: self.cal.component(.month, from: date)) {
                 mi = monthIndex
             }
-            self.datePicker.selectRow(mi, inComponent:1, animated:true)
+            self.picker.selectRow(mi, inComponent:1, animated:true)
             
         case .MD:
             
@@ -259,13 +259,13 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
             if let monthIndex = months.index(of: self.cal.component(.month, from: date)) {
                 mi = monthIndex
             }
-            self.datePicker.selectRow(mi, inComponent:0, animated:true)
+            self.picker.selectRow(mi, inComponent:0, animated:true)
             
             var di: Int = 0
             if let dayIndex = days.index(of: self.cal.component(.day, from: date)) {
                 di = dayIndex
             }
-            self.datePicker.selectRow(di, inComponent:1, animated:true)
+            self.picker.selectRow(di, inComponent:1, animated:true)
         }
     }
     

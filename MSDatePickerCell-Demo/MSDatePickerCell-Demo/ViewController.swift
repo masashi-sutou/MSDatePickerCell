@@ -71,6 +71,7 @@ class ViewController: UITableViewController {
                     self.birthday = date
                     tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
                 }
+                
                 return cell
             }
             
