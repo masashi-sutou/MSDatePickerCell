@@ -44,7 +44,7 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
     private var dateUpdated: (Date) -> Void
     private var style: DatePickerStyle
     
-    let years: [Int] = (1980...2030).map { $0 }
+    let years: [Int] = (1900...2100).map { $0 }
     let months: [Int] = (1...12).map { $0 }
     let days: [Int] = (1...31).map { $0 }
     
