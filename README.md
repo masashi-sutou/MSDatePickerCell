@@ -4,7 +4,8 @@ MSDatePickerCell
 Overview
 
 ## Demo
-- DatePickerStyle
+### DatePickerStyle
+
 .YMD | .YM | .MD
 --- | --- | ---
 <img src="https://raw.githubusercontent.com/masashi-sutou/MSDatePickerCell/master/demo_images/ymd.jpg" width="320"/> | <img src="https://raw.githubusercontent.com/masashi-sutou/MSDatePickerCell/master/demo_images/ym.jpg" width="320"/> | <img src="https://raw.githubusercontent.com/masashi-sutou/MSDatePickerCell/master/demo_images/md.jpg" width="320"/>
