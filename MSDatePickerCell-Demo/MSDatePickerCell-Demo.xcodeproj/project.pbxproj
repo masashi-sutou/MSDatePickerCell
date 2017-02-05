@@ -8,20 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		182C83591E45A2DA005BE479 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C83581E45A2DA005BE479 /* AppDelegate.swift */; };
-		182C835B1E45A2DA005BE479 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C835A1E45A2DA005BE479 /* ViewController.swift */; };
+		182C835B1E45A2DA005BE479 /* YMDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C835A1E45A2DA005BE479 /* YMDViewController.swift */; };
 		182C83601E45A2DA005BE479 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 182C835F1E45A2DA005BE479 /* Assets.xcassets */; };
 		182C83631E45A2DA005BE479 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 182C83611E45A2DA005BE479 /* LaunchScreen.storyboard */; };
 		182C836B1E45A41E005BE479 /* MSDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C836A1E45A41E005BE479 /* MSDatePickerCell.swift */; };
+		182C836D1E47906D005BE479 /* YMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C836C1E47906D005BE479 /* YMViewController.swift */; };
+		182C836F1E4790F6005BE479 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C836E1E4790F6005BE479 /* ViewController.swift */; };
+		182C83711E479199005BE479 /* MDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C83701E479199005BE479 /* MDViewController.swift */; };
+		182C83731E4793E0005BE479 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C83721E4793E0005BE479 /* UIColor+Custom.swift */; };
+		182C83751E47945F005BE479 /* Date+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C83741E47945F005BE479 /* Date+Custom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		182C83551E45A2DA005BE479 /* MSDatePickerCell-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MSDatePickerCell-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		182C83581E45A2DA005BE479 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		182C835A1E45A2DA005BE479 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		182C835A1E45A2DA005BE479 /* YMDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMDViewController.swift; sourceTree = "<group>"; };
 		182C835F1E45A2DA005BE479 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		182C83621E45A2DA005BE479 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		182C83641E45A2DA005BE479 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		182C836A1E45A41E005BE479 /* MSDatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSDatePickerCell.swift; sourceTree = "<group>"; };
+		182C836C1E47906D005BE479 /* YMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YMViewController.swift; sourceTree = "<group>"; };
+		182C836E1E4790F6005BE479 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		182C83701E479199005BE479 /* MDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDViewController.swift; sourceTree = "<group>"; };
+		182C83721E4793E0005BE479 /* UIColor+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
+		182C83741E47945F005BE479 /* Date+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Custom.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +64,35 @@
 		182C83571E45A2DA005BE479 /* MSDatePickerCell-Demo */ = {
 			isa = PBXGroup;
 			children = (
+				182C83771E4795CB005BE479 /* Cell */,
+				182C83761E479493005BE479 /* Helper */,
 				182C83581E45A2DA005BE479 /* AppDelegate.swift */,
-				182C835A1E45A2DA005BE479 /* ViewController.swift */,
-				182C836A1E45A41E005BE479 /* MSDatePickerCell.swift */,
+				182C836E1E4790F6005BE479 /* ViewController.swift */,
+				182C835A1E45A2DA005BE479 /* YMDViewController.swift */,
+				182C836C1E47906D005BE479 /* YMViewController.swift */,
+				182C83701E479199005BE479 /* MDViewController.swift */,
 				182C835F1E45A2DA005BE479 /* Assets.xcassets */,
 				182C83611E45A2DA005BE479 /* LaunchScreen.storyboard */,
 				182C83641E45A2DA005BE479 /* Info.plist */,
 			);
 			path = "MSDatePickerCell-Demo";
+			sourceTree = "<group>";
+		};
+		182C83761E479493005BE479 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				182C83721E4793E0005BE479 /* UIColor+Custom.swift */,
+				182C83741E47945F005BE479 /* Date+Custom.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		182C83771E4795CB005BE479 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				182C836A1E45A41E005BE479 /* MSDatePickerCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +167,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				182C835B1E45A2DA005BE479 /* ViewController.swift in Sources */,
+				182C83751E47945F005BE479 /* Date+Custom.swift in Sources */,
+				182C83731E4793E0005BE479 /* UIColor+Custom.swift in Sources */,
+				182C836F1E4790F6005BE479 /* ViewController.swift in Sources */,
+				182C83711E479199005BE479 /* MDViewController.swift in Sources */,
+				182C835B1E45A2DA005BE479 /* YMDViewController.swift in Sources */,
 				182C83591E45A2DA005BE479 /* AppDelegate.swift in Sources */,
+				182C836D1E47906D005BE479 /* YMViewController.swift in Sources */,
 				182C836B1E45A41E005BE479 /* MSDatePickerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +293,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.masashi.sutou.MSDatePickerCell-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -270,6 +307,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.masashi.sutou.MSDatePickerCell-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -292,6 +330,7 @@
 				182C83691E45A2DA005BE479 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
