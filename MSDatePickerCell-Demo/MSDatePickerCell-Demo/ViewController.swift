@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UITableViewController {
     
-    public var birthday: Birthday?
+    open var birthday: Birthday?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,13 +41,13 @@ class ViewController: UITableViewController {
         case 0:
             if indexPath.row == 0 {
                 cell.textLabel?.text = "YMD"
-                cell.detailTextLabel?.text = self.birthday?.ymdDate?.string(format: NSLocalizedString("MMMM d, yyyy", comment: ""))
+                cell.detailTextLabel?.text = self.birthday?.ymdDate?.string(NSLocalizedString("MMMM d, yyyy", comment: ""))
             } else if indexPath.row == 1 {
                 cell.textLabel?.text = "YM"
-                cell.detailTextLabel?.text = self.birthday?.ymDate?.string(format: NSLocalizedString("MMMM, yyyy", comment: ""))
+                cell.detailTextLabel?.text = self.birthday?.ymDate?.string(NSLocalizedString("MMMM, yyyy", comment: ""))
             } else {
                 cell.textLabel?.text = "MD"
-                cell.detailTextLabel?.text = self.birthday?.mdDate?.string(format: NSLocalizedString("MMMM d", comment: ""))
+                cell.detailTextLabel?.text = self.birthday?.mdDate?.string(NSLocalizedString("MMMM d", comment: ""))
             }
         default:
             return UITableViewCell()

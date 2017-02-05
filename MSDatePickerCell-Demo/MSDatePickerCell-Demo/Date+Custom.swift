@@ -9,7 +9,7 @@
 import Foundation
 
 public extension Date {
-    func string(format: String) -> String {
+    func string(_ format: String) -> String {
         let formatter: DateFormatter = DateFormatter()
         formatter.calendar = Calendar.init(identifier: .gregorian)
         formatter.dateFormat = format

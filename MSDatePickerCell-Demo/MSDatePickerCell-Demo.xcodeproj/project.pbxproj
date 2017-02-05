@@ -143,6 +143,7 @@
 					182C83541E45A2DA005BE479 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = E8L2964G6Z;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};

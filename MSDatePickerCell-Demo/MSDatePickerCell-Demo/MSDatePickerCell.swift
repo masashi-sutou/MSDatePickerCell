@@ -9,9 +9,9 @@
 import UIKit
 
 @objc enum DatePickerStyle: Int {
-    case YMD
-    case YM
-    case MD
+    case ymd
+    case ym
+    case md
 }
 
 private extension UIColor {
@@ -21,14 +21,14 @@ private extension UIColor {
 }
 
 private extension Date {
-    static func dateFromString(string: String, format: String, calendar: Calendar) -> Date {
+    static func dateFromString(_ string: String, format: String, calendar: Calendar) -> Date {
         let formatter: DateFormatter = DateFormatter()
         formatter.calendar = calendar
         formatter.dateFormat = format
         return formatter.date(from: string)!
     }
     
-    func string(format: String, calendar: Calendar) -> String {
+    func string(_ format: String, calendar: Calendar) -> String {
         let formatter: DateFormatter = DateFormatter()
         formatter.calendar = calendar
         formatter.dateFormat = format
@@ -38,14 +38,14 @@ private extension Date {
 
 class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    public var cal: Calendar = Calendar.init(identifier: .gregorian)
-    public var picker: UIPickerView
+    open var cal: Calendar = Calendar.init(identifier: .gregorian)
+    open var picker: UIPickerView
 
-    private var dateUpdated: (Date) -> Void
-    private var style: DatePickerStyle
+    fileprivate var dateUpdated: (Date) -> Void
+    fileprivate var style: DatePickerStyle
     
     let isJapanLanguage: Bool = {
-        if let lang: String = NSLocale.preferredLanguages.first {
+        if let lang: String = Locale.preferredLanguages.first {
             return lang.substring(to: lang.index(lang.startIndex, offsetBy: 2)) == "ja"
         } else {
             return false
@@ -71,7 +71,7 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
         super.init(style: .default, reuseIdentifier: "DatePickerCell")
         
         self.picker.delegate = self
-        self.defaultSelectPickerRow(date: date)
+        self.defaultSelectPickerRow(date)
         
         self.accessoryType = .none
         self.selectionStyle = .none
@@ -94,16 +94,16 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
         switch self.style {
-        case .YMD: return 3
-        case .YM: return 2
-        case .MD: return 2
+        case .ymd: return 3
+        case .ym: return 2
+        case .md: return 2
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         switch self.style {
-        case .YMD:
+        case .ymd:
             
             if isJapanLanguage {
 
@@ -126,7 +126,7 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
                 }
             }
             
-        case .YM:
+        case .ym:
             
             if isJapanLanguage {
             
@@ -145,7 +145,7 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
                 }
             }
             
-        case .MD:
+        case .md:
             
             if component == 0 {
                 return months.count
@@ -160,7 +160,7 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         
         switch self.style {
-        case .YMD:
+        case .ymd:
 
             if isJapanLanguage {
             
@@ -196,7 +196,7 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
                 }
             }
             
-        case .YM:
+        case .ym:
 
             if isJapanLanguage {
                 
@@ -215,7 +215,7 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
                 }
             }
 
-        case .MD:
+        case .md:
             
             if component == 0 {
                 
@@ -248,7 +248,7 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
         var day: Int
 
         switch self.style {
-        case .YMD:
+        case .ymd:
 
             if isJapanLanguage {
                 year = years[pickerView.selectedRow(inComponent: 0)]
@@ -261,16 +261,16 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
             }
             
             let dateString: String = String(format: "%d/%02d/%02d 00:00:00 +0900", year, month, day)
-            let date: Date = Date.dateFromString(string: dateString, format: "yyyy/MM/dd HH:mm:ss Z", calendar: self.cal)
+            let date: Date = Date.dateFromString(dateString, format: "yyyy/MM/dd HH:mm:ss Z", calendar: self.cal)
             
             // 存在しない日付を変換した場合
-            if dateString != date.string(format: "yyyy/MM/dd HH:mm:ss Z", calendar: self.cal) {
-                self.defaultSelectPickerRow(date: date)
+            if dateString != date.string("yyyy/MM/dd HH:mm:ss Z", calendar: self.cal) {
+                self.defaultSelectPickerRow(date)
             }
             
             self.dateUpdated(date)
             
-        case .YM:
+        case .ym:
             
             if isJapanLanguage {
                 year = years[pickerView.selectedRow(inComponent: 0)]
@@ -282,22 +282,22 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
             
             let dateString: String = String(format: "%d/%02d/01 00:00:00 +0900", year, month)
             
-            self.dateUpdated(Date.dateFromString(string: dateString, format: "yyyy/MM/dd HH:mm:ss Z", calendar: self.cal))
+            self.dateUpdated(Date.dateFromString(dateString, format: "yyyy/MM/dd HH:mm:ss Z", calendar: self.cal))
             
-        case .MD:
+        case .md:
             
             year = self.cal.component(.year, from: Date())
             month = months[pickerView.selectedRow(inComponent: 0)]
             day = days[pickerView.selectedRow(inComponent: 1)]
             let dateString: String = String(format: "%d/%02d/%02d 00:00:00 +0900", year, month, day)
-            let date: Date = Date.dateFromString(string: dateString, format: "yyyy/MM/dd HH:mm:ss Z", calendar: self.cal)
+            let date: Date = Date.dateFromString(dateString, format: "yyyy/MM/dd HH:mm:ss Z", calendar: self.cal)
             
-            if dateString != date.string(format: "yyyy/MM/dd HH:mm:ss Z", calendar: self.cal) {
+            if dateString != date.string("yyyy/MM/dd HH:mm:ss Z", calendar: self.cal) {
                 // 存在しない日付を変換した場合
-                self.defaultSelectPickerRow(date: date)
+                self.defaultSelectPickerRow(date)
             }
             
-            self.dateUpdated(Date.dateFromString(string: dateString, format: "yyyy/MM/dd HH:mm:ss Z", calendar: self.cal))
+            self.dateUpdated(Date.dateFromString(dateString, format: "yyyy/MM/dd HH:mm:ss Z", calendar: self.cal))
         }
     }
     
@@ -305,16 +305,16 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
         
         if isJapanLanguage {
             switch self.style {
-            case .YMD:
+            case .ymd:
                 return pickerView.frame.width * 0.3
-            case .YM:
+            case .ym:
                 return pickerView.frame.width * 0.5
-            case .MD:
+            case .md:
                 return pickerView.frame.width * 0.5
             }
         } else {
             switch self.style {
-            case .YMD:
+            case .ymd:
                 if component == 0 {
                     return pickerView.frame.width * 0.4
                 } else if component == 1 {
@@ -322,9 +322,9 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
                 } else {
                     return pickerView.frame.width * 0.4
                 }
-            case .YM:
+            case .ym:
                 return pickerView.frame.width * 0.5
-            case .MD:
+            case .md:
                 return pickerView.frame.width * 0.5
             }
         }
@@ -336,10 +336,10 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
     
     // MARK: Pickerのデフォルト値を設定
     
-    final private func defaultSelectPickerRow(date: Date) {
+    final fileprivate func defaultSelectPickerRow(_ date: Date) {
         
         switch self.style {
-        case .YMD:
+        case .ymd:
             
             var yi: Int = 0
             if let yearIndex = years.index(of: self.cal.component(.year, from: date)) {
@@ -364,7 +364,7 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
                 self.picker.selectRow(di, inComponent:1, animated:true)
             }
             
-        case .YM:
+        case .ym:
             
             var yi: Int = 0
             if let yearIndex = years.index(of: self.cal.component(.year, from: date)) {
@@ -383,7 +383,7 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
                 self.picker.selectRow(mi, inComponent:0, animated:true)
             }
             
-        case .MD:
+        case .md:
             
             var mi: Int = 0
             if let monthIndex = months.index(of: self.cal.component(.month, from: date)) {
@@ -401,12 +401,12 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
     
     // MARK: 存在する・しない日付で色を変更
     
-    private func ableOrUnableDay(_ pickerView: UIPickerView, year: Int, month: Int, day: Int) -> NSAttributedString {
+    fileprivate func ableOrUnableDay(_ pickerView: UIPickerView, year: Int, month: Int, day: Int) -> NSAttributedString {
         
         let dateString: String = String(format: "%d/%02d/%02d 00:00:00 +0900", year, month, day)
-        let date: Date = Date.dateFromString(string: dateString, format: "yyyy/MM/dd HH:mm:ss Z", calendar: self.cal)
+        let date: Date = Date.dateFromString(dateString, format: "yyyy/MM/dd HH:mm:ss Z", calendar: self.cal)
         
-        if dateString != date.string(format: "yyyy/MM/dd HH:mm:ss Z", calendar: self.cal) {
+        if dateString != date.string("yyyy/MM/dd HH:mm:ss Z", calendar: self.cal) {
             
             // 存在しない日付を変換した場合
             if isJapanLanguage {

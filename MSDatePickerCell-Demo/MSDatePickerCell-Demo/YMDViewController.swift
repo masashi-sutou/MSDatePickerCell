@@ -10,7 +10,7 @@ import UIKit
 
 class YMDViewController: UITableViewController {
 
-    private var birthday: Birthday
+    fileprivate var birthday: Birthday
     
     init(birthday: Birthday) {
         self.birthday = birthday
@@ -48,7 +48,7 @@ class YMDViewController: UITableViewController {
 
                 if let birthday = self.birthday.ymdDate {
 
-                    cell.detailTextLabel?.text = birthday.string(format: NSLocalizedString("MMMM d, yyyy", comment: ""))
+                    cell.detailTextLabel?.text = birthday.string(NSLocalizedString("MMMM d, yyyy", comment: ""))
                     cell.detailTextLabel?.textColor = UIColor.tint()
 
                 } else {
@@ -61,7 +61,7 @@ class YMDViewController: UITableViewController {
                 
             } else {
 
-                let cell = MSDatePickerCell(style: .YMD) { (date: Date) in
+                let cell = MSDatePickerCell(style: .ymd) { (date: Date) in
                     self.birthday.ymdDate = date
                     tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
                 }

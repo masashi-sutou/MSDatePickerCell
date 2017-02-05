@@ -10,7 +10,7 @@ import UIKit
 
 class YMViewController: UITableViewController {
     
-    private var birthday: Birthday
+    fileprivate var birthday: Birthday
     
     init(birthday: Birthday) {
         self.birthday = birthday
@@ -48,7 +48,7 @@ class YMViewController: UITableViewController {
                 
                 if let birthday = self.birthday.ymDate {
                     
-                    cell.detailTextLabel?.text = birthday.string(format: NSLocalizedString("MMMM, yyyy", comment: ""))
+                    cell.detailTextLabel?.text = birthday.string(NSLocalizedString("MMMM, yyyy", comment: ""))
                     cell.detailTextLabel?.textColor = UIColor.tint()
                     
                 } else {
@@ -61,7 +61,7 @@ class YMViewController: UITableViewController {
                 
             } else {
                 
-                let cell = MSDatePickerCell(style: .YM) { (date: Date) in
+                let cell = MSDatePickerCell(style: .ym) { (date: Date) in
                     self.birthday.ymDate = date
                     tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
                 }

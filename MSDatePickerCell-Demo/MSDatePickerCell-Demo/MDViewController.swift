@@ -10,7 +10,7 @@ import UIKit
 
 class MDViewController: UITableViewController {
     
-    private var birthday: Birthday
+    fileprivate var birthday: Birthday
     
     init(birthday: Birthday) {
         self.birthday = birthday
@@ -48,7 +48,7 @@ class MDViewController: UITableViewController {
                 
                 if let birthday = self.birthday.mdDate {
                     
-                    cell.detailTextLabel?.text = birthday.string(format: NSLocalizedString("MMMM d", comment: ""))
+                    cell.detailTextLabel?.text = birthday.string(NSLocalizedString("MMMM d", comment: ""))
                     cell.detailTextLabel?.textColor = UIColor.tint()
                     
                 } else {
@@ -61,7 +61,7 @@ class MDViewController: UITableViewController {
                 
             } else {
                 
-                let cell = MSDatePickerCell(style: .MD) { (date: Date) in
+                let cell = MSDatePickerCell(style: .md) { (date: Date) in
                     self.birthday.mdDate = date
                     tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
                 }

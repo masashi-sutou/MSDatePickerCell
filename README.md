@@ -4,7 +4,7 @@ MSDatePickerCell
 ## Overview
 ### DatePickerStyle
 
-.YMD | .YM | .MD
+.ymd | .ym | .md
 --- | --- | ---
 <img src="https://raw.githubusercontent.com/masashi-sutou/MSDatePickerCell/master/demo_images/ymd.jpg" width="320"/> | <img src="https://raw.githubusercontent.com/masashi-sutou/MSDatePickerCell/master/demo_images/ym.jpg" width="320"/> | <img src="https://raw.githubusercontent.com/masashi-sutou/MSDatePickerCell/master/demo_images/md.jpg" width="320"/>
 
@@ -15,10 +15,12 @@ MSDatePickerCell
 
 ## Usage
 ```Swift
-let cell = MSDatePickerCell(style: .YMD) { (date: Date) in
-  // Do Something
+override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  let cell = MSDatePickerCell(style: .ymd) { (date: Date) in
+    // Do Something
+  }
+  return cell
 }
-return cell
 ```
 
 ## Installation
