@@ -299,6 +299,7 @@
 				18BFC7421E45A0210001B6C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -35,16 +35,16 @@ class YMDViewController: UITableViewController {
             if indexPath.row == 0 {
                 
                 let cell = UITableViewCell(style: .value1, reuseIdentifier: "value1")
-                cell.textLabel?.text = "誕生日"
+                cell.textLabel?.text = NSLocalizedString("Birthday", comment: "")
 
                 if let birthday = self.birthday {
 
-                    cell.detailTextLabel?.text = birthday.string(format: "yyyy年M月d日")
+                    cell.detailTextLabel?.text = birthday.string(format: NSLocalizedString("MMMM d, yyyy", comment: ""))
                     cell.detailTextLabel?.textColor = UIColor.tint()
 
                 } else {
                     
-                    cell.detailTextLabel?.text = "未設定"
+                    cell.detailTextLabel?.text = NSLocalizedString("not set", comment: "")
                     cell.detailTextLabel?.textColor = .black
                 }
                 

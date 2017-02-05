@@ -44,8 +44,17 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
     private var dateUpdated: (Date) -> Void
     private var style: DatePickerStyle
     
+    let isJapanLanguage: Bool = {
+        if let lang: String = NSLocale.preferredLanguages.first {
+            return lang.substring(to: lang.index(lang.startIndex, offsetBy: 2)) == "ja"
+        } else {
+            return false
+        }
+    }()
+    
     let years: [Int] = (1900...2100).map { $0 }
     let months: [Int] = (1...12).map { $0 }
+    let enMonths: [String] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     let days: [Int] = (1...31).map { $0 }
     
     required init?(coder aDecoder: NSCoder) {
@@ -96,20 +105,44 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
         switch self.style {
         case .YMD:
             
-            if component == 0 {
-                return years.count
-            } else if component == 1 {
-                return months.count
+            if isJapanLanguage {
+                
+                if component == 0 {
+                    return years.count
+                } else if component == 1 {
+                    return months.count
+                } else {
+                    return days.count
+                }
+                
             } else {
-                return days.count
+                
+                if component == 0 {
+                    return enMonths.count
+                } else if component == 1 {
+                    return days.count
+                } else {
+                    return years.count
+                }
             }
             
         case .YM:
             
-            if component == 0 {
-                return years.count
+            if isJapanLanguage {
+                
+                if component == 0 {
+                    return years.count
+                } else {
+                    return months.count
+                }
+                
             } else {
-                return months.count
+                
+                if component == 0 {
+                    return enMonths.count
+                } else {
+                    return years.count
+                }
             }
             
         case .MD:
@@ -129,39 +162,80 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
         switch self.style {
         case .YMD:
             
-            if component == 0 {
-                return NSAttributedString.init(string: "\(years[row])年")
-            } else if component == 1 {
-                return NSAttributedString.init(string: "\(months[row])月")
+            if isJapanLanguage {
+                
+                if component == 0 {
+                    return NSAttributedString.init(string: "\(years[row])年")
+                } else if component == 1 {
+                    return NSAttributedString.init(string: "\(months[row])月")
+                } else {
+                    
+                    switch days[row] {
+                    case 29, 30, 31:
+                        return self.ableOrUnableDay(pickerView, year: years[pickerView.selectedRow(inComponent: 0)], month: months[pickerView.selectedRow(inComponent: 1)], day: days[row])
+                    default:
+                        return NSAttributedString.init(string: "\(days[row])日")
+                    }
+                }
+                
             } else {
                 
-                switch days[row] {
-                case 29, 30, 31:
-                    return self.ableOrUnableDay(pickerView, year: years[pickerView.selectedRow(inComponent: 0)], month: months[pickerView.selectedRow(inComponent: 1)], day: days[row])
-                default:
-                    return NSAttributedString.init(string: "\(days[row])日")
+                if component == 0 {
+                    return NSAttributedString.init(string: "\(enMonths[row])")
+                } else if component == 1 {
+                    
+                    switch days[row] {
+                    case 29, 30, 31:
+                        return self.ableOrUnableDay(pickerView, year: years[pickerView.selectedRow(inComponent: 2)], month: months[pickerView.selectedRow(inComponent: 0)], day: days[row])
+                    default:
+                        return NSAttributedString.init(string: "\(days[row])")
+                    }
+                    
+                } else {
+                    return NSAttributedString.init(string: "\(years[row])")
                 }
             }
             
         case .YM:
             
-            if component == 0 {
-                return NSAttributedString.init(string: "\(years[row])年")
+            if isJapanLanguage {
+                
+                if component == 0 {
+                    return NSAttributedString.init(string: "\(years[row])年")
+                } else {
+                    return NSAttributedString.init(string: "\(months[row])月")
+                }
+                
             } else {
-                return NSAttributedString.init(string: "\(months[row])月")
+                
+                if component == 0 {
+                    return NSAttributedString.init(string: "\(enMonths[row])")
+                } else {
+                    return NSAttributedString.init(string: "\(years[row])")
+                }
             }
             
         case .MD:
             
             if component == 0 {
-                return NSAttributedString.init(string: "\(months[row])月")
+                
+                if isJapanLanguage {
+                    return NSAttributedString.init(string: "\(months[row])月")
+                } else {
+                    return NSAttributedString.init(string: "\(enMonths[row])")
+                }
+                
             } else {
                 
                 switch days[row] {
                 case 29, 30, 31:
                     return self.ableOrUnableDay(pickerView, year: self.cal.component(.year, from: Date()), month: months[pickerView.selectedRow(inComponent: 0)], day: days[row])
                 default:
-                    return NSAttributedString.init(string: "\(days[row])日")
+                    if isJapanLanguage {
+                        return NSAttributedString.init(string: "\(days[row])日")
+                    } else {
+                        return NSAttributedString.init(string: "\(days[row])")
+                    }
                 }
             }
         }
@@ -169,13 +243,24 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
+        var year: Int
+        var month: Int
+        var day: Int
+        
         switch self.style {
         case .YMD:
             
-            let year: Int = years[pickerView.selectedRow(inComponent: 0)]
-            let month: Int = months[pickerView.selectedRow(inComponent: 1)]
-            let day: Int = days[pickerView.selectedRow(inComponent: 2)]
-            let dateString: String = String(format: "%d/%d/%d 00:00:00 +0900", year, month, day)
+            if isJapanLanguage {
+                year = years[pickerView.selectedRow(inComponent: 0)]
+                month = months[pickerView.selectedRow(inComponent: 1)]
+                day = days[pickerView.selectedRow(inComponent: 2)]
+            } else {
+                year = years[pickerView.selectedRow(inComponent: 2)]
+                month = months[pickerView.selectedRow(inComponent: 0)]
+                day = days[pickerView.selectedRow(inComponent: 1)]
+            }
+            
+            let dateString: String = String(format: "%d/%02d/%02d 00:00:00 +0900", year, month, day)
             let date: Date = Date.dateFromString(string: dateString, format: "yyyy/MM/dd HH:mm:ss Z", calendar: self.cal)
             
             // 存在しない日付を変換した場合
@@ -187,18 +272,24 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
             
         case .YM:
             
-            let year: Int = years[pickerView.selectedRow(inComponent: 0)]
-            let month: Int = months[pickerView.selectedRow(inComponent: 1)]
-            let dateString: String = String(format: "%d/%d/1 00:00:00 +0900", year, month)
+            if isJapanLanguage {
+                year = years[pickerView.selectedRow(inComponent: 0)]
+                month = months[pickerView.selectedRow(inComponent: 1)]
+            } else {
+                year = years[pickerView.selectedRow(inComponent: 1)]
+                month = months[pickerView.selectedRow(inComponent: 0)]
+            }
+            
+            let dateString: String = String(format: "%d/%02d/01 00:00:00 +0900", year, month)
             
             self.dateUpdated(Date.dateFromString(string: dateString, format: "yyyy/MM/dd HH:mm:ss Z", calendar: self.cal))
             
         case .MD:
             
-            let year: Int = self.cal.component(.year, from: Date())
-            let month: Int = months[pickerView.selectedRow(inComponent: 0)]
-            let day: Int = days[pickerView.selectedRow(inComponent: 1)]
-            let dateString: String = String(format: "%d/%d/%d 00:00:00 +0900", year, month, day)
+            year = self.cal.component(.year, from: Date())
+            month = months[pickerView.selectedRow(inComponent: 0)]
+            day = days[pickerView.selectedRow(inComponent: 1)]
+            let dateString: String = String(format: "%d/%02d/%02d 00:00:00 +0900", year, month, day)
             let date: Date = Date.dateFromString(string: dateString, format: "yyyy/MM/dd HH:mm:ss Z", calendar: self.cal)
             
             if dateString != date.string(format: "yyyy/MM/dd HH:mm:ss Z", calendar: self.cal) {
@@ -207,6 +298,35 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
             }
             
             self.dateUpdated(Date.dateFromString(string: dateString, format: "yyyy/MM/dd HH:mm:ss Z", calendar: self.cal))
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        
+        if isJapanLanguage {
+            switch self.style {
+            case .YMD:
+                return pickerView.frame.width * 0.3
+            case .YM:
+                return pickerView.frame.width * 0.5
+            case .MD:
+                return pickerView.frame.width * 0.5
+            }
+        } else {
+            switch self.style {
+            case .YMD:
+                if component == 0 {
+                    return pickerView.frame.width * 0.4
+                } else if component == 1 {
+                    return pickerView.frame.width * 0.2
+                } else {
+                    return pickerView.frame.width * 0.4
+                }
+            case .YM:
+                return pickerView.frame.width * 0.5
+            case .MD:
+                return pickerView.frame.width * 0.5
+            }
         }
     }
     
@@ -225,19 +345,24 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
             if let yearIndex = years.index(of: self.cal.component(.year, from: date)) {
                 yi = yearIndex
             }
-            self.picker.selectRow(yi, inComponent:0, animated:true)
-            
             var mi: Int = 0
             if let monthIndex = months.index(of: self.cal.component(.month, from: date)) {
                 mi = monthIndex
             }
-            self.picker.selectRow(mi, inComponent:1, animated:true)
-            
             var di: Int = 0
             if let dayIndex = days.index(of: self.cal.component(.day, from: date)) {
                 di = dayIndex
             }
-            self.picker.selectRow(di, inComponent:2, animated:true)
+            
+            if isJapanLanguage {
+                self.picker.selectRow(yi, inComponent:0, animated:true)
+                self.picker.selectRow(mi, inComponent:1, animated:true)
+                self.picker.selectRow(di, inComponent:2, animated:true)
+            } else {
+                self.picker.selectRow(yi, inComponent:2, animated:true)
+                self.picker.selectRow(mi, inComponent:0, animated:true)
+                self.picker.selectRow(di, inComponent:1, animated:true)
+            }
             
         case .YM:
             
@@ -245,13 +370,18 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
             if let yearIndex = years.index(of: self.cal.component(.year, from: date)) {
                 yi = yearIndex
             }
-            self.picker.selectRow(yi, inComponent:0, animated:true)
-            
             var mi: Int = 0
             if let monthIndex = months.index(of: self.cal.component(.month, from: date)) {
                 mi = monthIndex
             }
-            self.picker.selectRow(mi, inComponent:1, animated:true)
+            
+            if isJapanLanguage {
+                self.picker.selectRow(yi, inComponent:0, animated:true)
+                self.picker.selectRow(mi, inComponent:1, animated:true)
+            } else {
+                self.picker.selectRow(yi, inComponent:1, animated:true)
+                self.picker.selectRow(mi, inComponent:0, animated:true)
+            }
             
         case .MD:
             
@@ -273,14 +403,24 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
     
     private func ableOrUnableDay(_ pickerView: UIPickerView, year: Int, month: Int, day: Int) -> NSAttributedString {
         
-        let dateString: String = String(format: "%d/%d/%d 00:00:00 +0900", year, month, day)
+        let dateString: String = String(format: "%d/%02d/%02d 00:00:00 +0900", year, month, day)
         let date: Date = Date.dateFromString(string: dateString, format: "yyyy/MM/dd HH:mm:ss Z", calendar: self.cal)
         
         if dateString != date.string(format: "yyyy/MM/dd HH:mm:ss Z", calendar: self.cal) {
+            
             // 存在しない日付を変換した場合
-            return NSAttributedString.init(string: "\(day)日", attributes: [NSForegroundColorAttributeName: UIColor.unable()])
+            if isJapanLanguage {
+                return NSAttributedString.init(string: "\(day)日", attributes: [NSForegroundColorAttributeName: UIColor.unable()])
+            } else {
+                return NSAttributedString.init(string: "\(day)", attributes: [NSForegroundColorAttributeName: UIColor.unable()])
+            }
+            
         } else {
-            return NSAttributedString.init(string: "\(day)日")
+            if isJapanLanguage {
+                return NSAttributedString.init(string: "\(day)日")
+            } else {
+                return NSAttributedString.init(string: "\(day)")
+            }
         }
     }
 }

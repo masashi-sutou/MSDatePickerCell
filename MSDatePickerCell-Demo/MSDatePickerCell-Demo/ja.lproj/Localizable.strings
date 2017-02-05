@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  MSDatePickerCell-Demo
+
+  Created by 須藤 将史 on 2017/02/06.
+  Copyright © 2017年 masashi_sutou. All rights reserved.
+*/
+
+"MMMM d, yyyy" = "yyyy年M月d日";
+"MMMM, yyyy" = "yyyy年M月";
+"MMMM d" = "M月d日";
+"Birthday" = "誕生日";
+"not set" = "未設定";
