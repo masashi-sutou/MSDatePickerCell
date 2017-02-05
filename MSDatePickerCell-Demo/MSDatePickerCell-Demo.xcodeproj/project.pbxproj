@@ -18,6 +18,7 @@
 		182C83731E4793E0005BE479 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C83721E4793E0005BE479 /* UIColor+Custom.swift */; };
 		182C83751E47945F005BE479 /* Date+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C83741E47945F005BE479 /* Date+Custom.swift */; };
 		182C837A1E4798DE005BE479 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 182C837C1E4798DE005BE479 /* Localizable.strings */; };
+		18CEF5091E47C89800D86AF1 /* Birthday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CEF5081E47C89800D86AF1 /* Birthday.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		182C83741E47945F005BE479 /* Date+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Custom.swift"; sourceTree = "<group>"; };
 		182C837B1E4798DE005BE479 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		182C837D1E479914005BE479 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		18CEF5081E47C89800D86AF1 /* Birthday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Birthday.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 		182C83571E45A2DA005BE479 /* MSDatePickerCell-Demo */ = {
 			isa = PBXGroup;
 			children = (
+				18CEF5071E47C88300D86AF1 /* Model */,
 				182C83771E4795CB005BE479 /* Cell */,
 				182C83761E479493005BE479 /* Helper */,
 				182C83581E45A2DA005BE479 /* AppDelegate.swift */,
@@ -97,6 +100,14 @@
 				182C836A1E45A41E005BE479 /* MSDatePickerCell.swift */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		18CEF5071E47C88300D86AF1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18CEF5081E47C89800D86AF1 /* Birthday.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +192,7 @@
 				182C83591E45A2DA005BE479 /* AppDelegate.swift in Sources */,
 				182C836D1E47906D005BE479 /* YMViewController.swift in Sources */,
 				182C836B1E45A41E005BE479 /* MSDatePickerCell.swift in Sources */,
+				18CEF5091E47C89800D86AF1 /* Birthday.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

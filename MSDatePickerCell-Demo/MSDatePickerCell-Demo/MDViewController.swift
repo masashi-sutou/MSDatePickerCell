@@ -10,7 +10,16 @@ import UIKit
 
 class MDViewController: UITableViewController {
     
-    var birthday: Date?
+    private var birthday: Birthday
+    
+    init(birthday: Birthday) {
+        self.birthday = birthday
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +46,7 @@ class MDViewController: UITableViewController {
                 let cell = UITableViewCell(style: .value1, reuseIdentifier: "value1")
                 cell.textLabel?.text = NSLocalizedString("Birthday", comment: "")
                 
-                if let birthday = self.birthday {
+                if let birthday = self.birthday.mdDate {
                     
                     cell.detailTextLabel?.text = birthday.string(format: NSLocalizedString("MMMM d", comment: ""))
                     cell.detailTextLabel?.textColor = UIColor.tint()
@@ -53,7 +62,7 @@ class MDViewController: UITableViewController {
             } else {
                 
                 let cell = MSDatePickerCell(style: .MD) { (date: Date) in
-                    self.birthday = date
+                    self.birthday.mdDate = date
                     tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
                 }
                 
