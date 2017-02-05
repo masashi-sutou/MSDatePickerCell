@@ -1,7 +1,7 @@
 MSDatePickerCell
 ====
 
-## Demo
+## Overview
 ### DatePickerStyle
 
 .YMD | .YM | .MD
