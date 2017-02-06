@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage              = "https://github.com/masashi-sutou/MSDatePickerCell"
   s.license               = { :type => "MIT", :file => "LICENSE" }
   s.source                = { :git => "https://github.com/masashi-sutou/MSDatePickerCell.git",  :tag => s.version }
-  s.source_files          = "MSDatePickerCell/**/*.{swift}"
+  s.source_files          = "MSDatePickerCell", "MSDatePickerCell/**/*.{swift}"
   s.requires_arc          = true
   s.platform              = :ios, '8.0'
   s.ios.deployment_target = '8.0'
