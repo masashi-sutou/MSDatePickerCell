@@ -36,7 +36,7 @@ private extension Date {
     }
 }
 
-class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
+open class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
     
     open var cal: Calendar = Calendar.init(identifier: .gregorian)
     open var picker: UIPickerView
@@ -57,7 +57,7 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
     let enMonths: [String] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     let days: [Int] = (1...31).map { $0 }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -79,7 +79,7 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
         self.contentView.addSubview(self.picker)
     }
     
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         
         var insets = self.layoutMargins
@@ -91,7 +91,7 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
     
     // MARK: - UIPickerView data source
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
         switch self.style {
         case .ymd: return 3
@@ -100,7 +100,7 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
         }
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         switch self.style {
         case .ymd:
@@ -157,7 +157,7 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
     
     // MARK: - UIPickerView delegate
     
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+    public func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         
         switch self.style {
         case .ymd:
@@ -241,7 +241,7 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
         }
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         var year: Int
         var month: Int
@@ -301,7 +301,7 @@ class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataS
         }
     }
     
-    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+    public func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         
         if isJapanLanguage {
             switch self.style {
