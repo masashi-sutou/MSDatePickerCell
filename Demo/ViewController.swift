@@ -14,7 +14,7 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.birthday = Birthday()
         
         self.navigationItem.title = "MSDatePickerCell-Demo"

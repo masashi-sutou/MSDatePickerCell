@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import MSDatePickerCell
 
 class YMDViewController: UITableViewController {
-
+    
     fileprivate var birthday: Birthday
     
     init(birthday: Birthday) {
@@ -37,20 +38,20 @@ class YMDViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         switch indexPath.section {
         case 0:
-
+            
             if indexPath.row == 0 {
                 
                 let cell = UITableViewCell(style: .value1, reuseIdentifier: "value1")
                 cell.textLabel?.text = NSLocalizedString("Birthday", comment: "")
-
+                
                 if let birthday = self.birthday.ymdDate {
-
+                    
                     cell.detailTextLabel?.text = birthday.string(NSLocalizedString("MMMM d, yyyy", comment: ""))
                     cell.detailTextLabel?.textColor = UIColor.tint()
-
+                    
                 } else {
                     
                     cell.detailTextLabel?.text = NSLocalizedString("not set", comment: "")
@@ -60,7 +61,7 @@ class YMDViewController: UITableViewController {
                 return cell
                 
             } else {
-
+                
                 let cell = MSDatePickerCell(style: .ymd) { (date: Date) in
                     self.birthday.ymdDate = date
                     tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
@@ -77,7 +78,7 @@ class YMDViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-
+            
             if indexPath.row == 0 {
                 return UITableViewAutomaticDimension
             } else {

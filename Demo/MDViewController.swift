@@ -1,5 +1,5 @@
 //
-//  YMViewController.swift
+//  MDViewController.swift
 //  MSDatePickerCell-Demo
 //
 //  Created by 須藤 将史 on 2017/02/06.
@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MSDatePickerCell
 
-class YMViewController: UITableViewController {
+class MDViewController: UITableViewController {
     
     fileprivate var birthday: Birthday
     
@@ -24,7 +25,7 @@ class YMViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "YM"
+        self.navigationItem.title = "MD"
         self.tableView = UITableView.init(frame: self.view.frame, style: .grouped)
     }
     
@@ -46,9 +47,9 @@ class YMViewController: UITableViewController {
                 let cell = UITableViewCell(style: .value1, reuseIdentifier: "value1")
                 cell.textLabel?.text = NSLocalizedString("Birthday", comment: "")
                 
-                if let birthday = self.birthday.ymDate {
+                if let birthday = self.birthday.mdDate {
                     
-                    cell.detailTextLabel?.text = birthday.string(NSLocalizedString("MMMM, yyyy", comment: ""))
+                    cell.detailTextLabel?.text = birthday.string(NSLocalizedString("MMMM d", comment: ""))
                     cell.detailTextLabel?.textColor = UIColor.tint()
                     
                 } else {
@@ -61,8 +62,8 @@ class YMViewController: UITableViewController {
                 
             } else {
                 
-                let cell = MSDatePickerCell(style: .ym) { (date: Date) in
-                    self.birthday.ymDate = date
+                let cell = MSDatePickerCell(style: .md) { (date: Date) in
+                    self.birthday.mdDate = date
                     tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
                 }
                 

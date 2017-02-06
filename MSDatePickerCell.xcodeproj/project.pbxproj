@@ -7,11 +7,59 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		187700721E47FDBE0033CD81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187700711E47FDBE0033CD81 /* Assets.xcassets */; };
+		187700751E47FDBE0033CD81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187700731E47FDBE0033CD81 /* LaunchScreen.storyboard */; };
+		1877007A1E47FDE70033CD81 /* MSDatePickerCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BFC7381E45A0210001B6C7 /* MSDatePickerCell.framework */; };
+		1877007B1E47FDE70033CD81 /* MSDatePickerCell.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18BFC7381E45A0210001B6C7 /* MSDatePickerCell.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		187700801E47FE460033CD81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877007F1E47FE460033CD81 /* AppDelegate.swift */; };
+		187700821E47FE6C0033CD81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187700811E47FE6C0033CD81 /* ViewController.swift */; };
+		187700841E47FE910033CD81 /* YMDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187700831E47FE910033CD81 /* YMDViewController.swift */; };
+		187700861E47FEAA0033CD81 /* YMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187700851E47FEAA0033CD81 /* YMViewController.swift */; };
+		187700881E47FEC00033CD81 /* MDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187700871E47FEC00033CD81 /* MDViewController.swift */; };
+		1877008B1E47FEDC0033CD81 /* Birthday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877008A1E47FEDC0033CD81 /* Birthday.swift */; };
+		1877008E1E47FEFD0033CD81 /* Date+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877008D1E47FEFD0033CD81 /* Date+Custom.swift */; };
+		187700901E47FF180033CD81 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877008F1E47FF180033CD81 /* UIColor+Custom.swift */; };
 		18BFC73D1E45A0210001B6C7 /* MSDatePickerCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 18BFC73B1E45A0210001B6C7 /* MSDatePickerCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		18BFC7441E45A0440001B6C7 /* MSDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFC7431E45A0440001B6C7 /* MSDatePickerCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1877007C1E47FDE70033CD81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18BFC72F1E45A0210001B6C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18BFC7371E45A0210001B6C7;
+			remoteInfo = MSDatePickerCell;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1877007E1E47FDE70033CD81 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1877007B1E47FDE70033CD81 /* MSDatePickerCell.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		187700681E47FDBD0033CD81 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		187700711E47FDBE0033CD81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		187700741E47FDBE0033CD81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		187700761E47FDBE0033CD81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1877007F1E47FE460033CD81 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		187700811E47FE6C0033CD81 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		187700831E47FE910033CD81 /* YMDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YMDViewController.swift; sourceTree = "<group>"; };
+		187700851E47FEAA0033CD81 /* YMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YMViewController.swift; sourceTree = "<group>"; };
+		187700871E47FEC00033CD81 /* MDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDViewController.swift; sourceTree = "<group>"; };
+		1877008A1E47FEDC0033CD81 /* Birthday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Birthday.swift; sourceTree = "<group>"; };
+		1877008D1E47FEFD0033CD81 /* Date+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Custom.swift"; sourceTree = "<group>"; };
+		1877008F1E47FF180033CD81 /* UIColor+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
 		18BFC7381E45A0210001B6C7 /* MSDatePickerCell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSDatePickerCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BFC73B1E45A0210001B6C7 /* MSDatePickerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSDatePickerCell.h; sourceTree = "<group>"; };
 		18BFC73C1E45A0210001B6C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -19,6 +67,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		187700651E47FDBD0033CD81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1877007A1E47FDE70033CD81 /* MSDatePickerCell.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18BFC7341E45A0210001B6C7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -29,10 +85,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		187700691E47FDBE0033CD81 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				1877008C1E47FEE70033CD81 /* Helper */,
+				187700891E47FECB0033CD81 /* Model */,
+				1877007F1E47FE460033CD81 /* AppDelegate.swift */,
+				187700811E47FE6C0033CD81 /* ViewController.swift */,
+				187700831E47FE910033CD81 /* YMDViewController.swift */,
+				187700851E47FEAA0033CD81 /* YMViewController.swift */,
+				187700871E47FEC00033CD81 /* MDViewController.swift */,
+				187700711E47FDBE0033CD81 /* Assets.xcassets */,
+				187700731E47FDBE0033CD81 /* LaunchScreen.storyboard */,
+				187700761E47FDBE0033CD81 /* Info.plist */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		187700891E47FECB0033CD81 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1877008A1E47FEDC0033CD81 /* Birthday.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1877008C1E47FEE70033CD81 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				1877008D1E47FEFD0033CD81 /* Date+Custom.swift */,
+				1877008F1E47FF180033CD81 /* UIColor+Custom.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		18BFC72E1E45A0210001B6C7 = {
 			isa = PBXGroup;
 			children = (
 				18BFC73A1E45A0210001B6C7 /* MSDatePickerCell */,
+				187700691E47FDBE0033CD81 /* Demo */,
 				18BFC7391E45A0210001B6C7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				18BFC7381E45A0210001B6C7 /* MSDatePickerCell.framework */,
+				187700681E47FDBD0033CD81 /* Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -69,6 +161,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		187700671E47FDBD0033CD81 /* Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 187700791E47FDBE0033CD81 /* Build configuration list for PBXNativeTarget "Demo" */;
+			buildPhases = (
+				187700641E47FDBD0033CD81 /* Sources */,
+				187700651E47FDBD0033CD81 /* Frameworks */,
+				187700661E47FDBD0033CD81 /* Resources */,
+				1877007E1E47FDE70033CD81 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1877007D1E47FDE70033CD81 /* PBXTargetDependency */,
+			);
+			name = Demo;
+			productName = Demo;
+			productReference = 187700681E47FDBD0033CD81 /* Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
 		18BFC7371E45A0210001B6C7 /* MSDatePickerCell */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18BFC7401E45A0210001B6C7 /* Build configuration list for PBXNativeTarget "MSDatePickerCell" */;
@@ -93,9 +204,15 @@
 		18BFC72F1E45A0210001B6C7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = masashi_sutou;
 				TargetAttributes = {
+					187700671E47FDBD0033CD81 = {
+						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
 					18BFC7371E45A0210001B6C7 = {
 						CreatedOnToolsVersion = 8.2.1;
 						LastSwiftMigration = 0820;
@@ -109,6 +226,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 18BFC72E1E45A0210001B6C7;
 			productRefGroup = 18BFC7391E45A0210001B6C7 /* Products */;
@@ -116,11 +234,21 @@
 			projectRoot = "";
 			targets = (
 				18BFC7371E45A0210001B6C7 /* MSDatePickerCell */,
+				187700671E47FDBD0033CD81 /* Demo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		187700661E47FDBD0033CD81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				187700751E47FDBE0033CD81 /* LaunchScreen.storyboard in Resources */,
+				187700721E47FDBE0033CD81 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18BFC7361E45A0210001B6C7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -131,6 +259,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		187700641E47FDBD0033CD81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				187700881E47FEC00033CD81 /* MDViewController.swift in Sources */,
+				187700821E47FE6C0033CD81 /* ViewController.swift in Sources */,
+				187700901E47FF180033CD81 /* UIColor+Custom.swift in Sources */,
+				1877008E1E47FEFD0033CD81 /* Date+Custom.swift in Sources */,
+				1877008B1E47FEDC0033CD81 /* Birthday.swift in Sources */,
+				187700841E47FE910033CD81 /* YMDViewController.swift in Sources */,
+				187700861E47FEAA0033CD81 /* YMViewController.swift in Sources */,
+				187700801E47FE460033CD81 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18BFC7331E45A0210001B6C7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -141,7 +284,57 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1877007D1E47FDE70033CD81 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18BFC7371E45A0210001B6C7 /* MSDatePickerCell */;
+			targetProxy = 1877007C1E47FDE70033CD81 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		187700731E47FDBE0033CD81 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				187700741E47FDBE0033CD81 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		187700771E47FDBE0033CD81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.masashi.sutou.Demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		187700781E47FDBE0033CD81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.masashi.sutou.Demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		18BFC73E1E45A0210001B6C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -285,6 +478,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		187700791E47FDBE0033CD81 /* Build configuration list for PBXNativeTarget "Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				187700771E47FDBE0033CD81 /* Debug */,
+				187700781E47FDBE0033CD81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		18BFC7321E45A0210001B6C7 /* Build configuration list for PBXProject "MSDatePickerCell" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
