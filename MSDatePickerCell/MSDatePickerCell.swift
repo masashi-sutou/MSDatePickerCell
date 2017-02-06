@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc enum DatePickerStyle: Int {
+@objc public enum DatePickerStyle: Int {
     case ymd
     case ym
     case md
@@ -61,7 +61,7 @@ open class MSDatePickerCell: UITableViewCell, UIPickerViewDelegate, UIPickerView
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(date: Date = Date(), style: DatePickerStyle, dateUpdated: @escaping ((Date) -> Void)) {
+    public init(date: Date = Date(), style: DatePickerStyle, dateUpdated: @escaping ((Date) -> Void)) {
         
         self.dateUpdated = dateUpdated
         self.style = style
