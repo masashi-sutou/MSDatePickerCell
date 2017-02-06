@@ -34,5 +34,11 @@ target 'YOUR_TARGET_NAME' do
 end
 ```
 
+#### [Carthage](https://github.com/Carthage/Carthage)
+Add the following line to your Cartfile:
+```ruby
+github "masashi-sutou/MSDatePickerCell"
+```
+
 ## Licence
 MSDatePickerCell is available under the MIT license. See the LICENSE file for more info.
