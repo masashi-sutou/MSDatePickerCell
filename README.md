@@ -21,6 +21,10 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
   }
   return cell
 }
+
+override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+  return MSDatePickerCell.preferredHeight()
+}
 ```
 
 ## Installation
