@@ -485,6 +485,7 @@
 				187700781E47FDBE0033CD81 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18BFC7321E45A0210001B6C7 /* Build configuration list for PBXProject "MSDatePickerCell" */ = {
 			isa = XCConfigurationList;
