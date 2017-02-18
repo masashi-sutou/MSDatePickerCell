@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = "MSDatePickerCell"
-  s.version               = "1.0.9"
+  s.version               = "1.1.0"
   s.summary               = "MSDatePickerCell is customized UITableViewCell for datePickerView."
   s.homepage              = "https://github.com/masashi-sutou/MSDatePickerCell"
   s.license               = { :type => "MIT", :file => "LICENSE" }

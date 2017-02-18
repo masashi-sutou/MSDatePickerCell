@@ -25,13 +25,22 @@ private extension Date {
         let formatter: DateFormatter = DateFormatter()
         formatter.calendar = calendar
         formatter.dateFormat = format
-        return formatter.date(from: string)!
+        formatter.locale = Locale.current
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        
+        if let date: Date = formatter.date(from: string) {
+            return date
+        } else {
+            return Date()
+        }
     }
     
     func string(_ format: String, calendar: Calendar) -> String {
         let formatter: DateFormatter = DateFormatter()
         formatter.calendar = calendar
         formatter.dateFormat = format
+        formatter.locale = Locale.current
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
         return formatter.string(from: self)
     }
 }
